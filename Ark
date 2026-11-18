@@ -1,0 +1,85 @@
+return (function(...)
+    local _0xl111IIl1lI = (getfenv and getfenv() or _G)
+    local _b, _c, _cat = string.byte, string.char, table.concat
+
+    -- Opaque Dead-Code Shield (Confuses Disassemblers)
+    local _0x_junk = (function(_x)
+        local _t = {}
+        for _i = 1, 16 do _t[_i] = (_x * _i) % 7 end
+        return #_t
+    end)(42)
+    if _0x_junk ~= 16 then return end
+
+    -- Bitwise XOR ALU Core
+    local function _0xIlIllI1Ill(_a, _b)
+        local _r, _p = 0, 1
+        for _ = 0, 7 do
+            local _ra, _rb = _a % 2, _b % 2
+            if _ra ~= _rb then _r = _r + _p end
+            _a = (_a - _ra) / 2
+            _b = (_b - _rb) / 2
+            _p = _p * 2
+        end
+        return _r
+    end
+
+    -- Invertible Substitution Vector
+    local _0x11lIIIIIII = {142,80,112,7,207,174,60,47,151,213,75,182,98,101,73,85,205,190,31,128,41,82,220,24,237,21,232,126,212,100,183,135,145,132,242,123,148,56,195,210,208,221,107,89,244,57,233,161,118,130,170,167,127,96,61,46,14,23,217,70,234,250,59,55,120,12,199,225,68,187,9,27,19,235,117,35,109,162,52,192,74,58,215,203,194,139,45,6,191,227,25,159,65,86,99,4,178,152,116,16,53,253,149,77,83,26,50,249,94,160,181,32,104,67,150,33,20,48,155,193,42,71,239,180,10,3,137,166,158,163,108,201,29,209,18,37,211,110,5,230,92,114,165,144,197,216,51,172,198,87,176,95,186,153,122,84,115,13,147,245,156,188,252,222,78,214,219,11,157,248,140,223,113,141,204,134,49,138,81,255,15,30,90,226,97,231,179,196,105,131,136,8,241,175,121,63,218,146,79,106,39,202,169,43,38,28,91,184,124,44,254,177,154,22,66,236,72,246,185,173,228,102,251,240,243,54,34,229,40,111,171,189,168,17,119,247,143,88,0,1,238,129,36,164,133,200,103,224,93,69,206,64,125,2,62,76}
+    local _0xll1I1IIlII = "\174\057\193\179\198\214\169\083\072\244\004\000\253\165\026\073\077\030\233\132\021\075\143\155\060\092\206\194\203\079\096\189\070\216\024\178\132\196\165\101\217\103\060\138\204\011\233\192\000\114\179\094\213\220\145\102\101\084\149\192\107\046\189\013\031\123\206\127\017\050\162\012\104\083\198\190\250\155\058\146\202\061\108\099\049\145\151\029\251\231\192\250\224\002\007"
+
+    -- Cascade Decryption Engine
+    local _0xl1l1l1111l = {}
+    local _p1, _p2, _p3 = 0x12, 0x5A, 0xC7
+    local _k1, _k2, _k3 = 143, 61, 180
+    local _len = #_0xll1I1IIlII
+
+    for _idx = 1, _len do
+        local _enc = _b(_0xll1I1IIlII, _idx)
+        
+        local _d3 = _0xIlIllI1Ill(_k3, (_idx * 83 + _p3) % 256)
+        local _c3 = _0xIlIllI1Ill(_enc, _d3)
+
+        local _d2 = _0xIlIllI1Ill(_k2, (_idx * 29 + _p2) % 256)
+        local _c2 = _0xIlIllI1Ill(_c3, _d2)
+
+        local _d1 = _0xIlIllI1Ill(_k1, (_idx * 53 + _p1) % 256)
+        local _c1 = _0xIlIllI1Ill(_c2, _d1)
+
+        local _orig = _0x11lIIIIIII[_c1 + 1]
+        _0xl1l1l1111l[_idx] = _c(_orig)
+
+        _p1 = _c2
+        _p2 = _c3
+        _p3 = _enc
+    end
+
+    local _0x1IIlllII1I = _cat(_0xl1l1l1111l)
+
+    -- Dynamic Resolution of loadstring / load
+    local _0xl1lIIl11l1 = nil
+    local _ls_name = _c(108, 111, 97, 100, 115, 116, 114, 105, 110, 103) -- "loadstring"
+    local _l_name = _c(108, 111, 97, 100) -- "load"
+
+    if _0xl111IIl1lI[_ls_name] then
+        _0xl1lIIl11l1 = _0xl111IIl1lI[_ls_name]
+    elseif typeof and typeof(getgenv) == "function" and getgenv()[_ls_name] then
+        _0xl1lIIl11l1 = getgenv()[_ls_name]
+    elseif _0xl111IIl1lI[_l_name] then
+        _0xl1lIIl11l1 = _0xl111IIl1lI[_l_name]
+    elseif loadstring then
+        _0xl1lIIl11l1 = loadstring
+    elseif load then
+        _0xl1lIIl11l1 = load
+    end
+
+    if not _0xl1lIIl11l1 then
+        error(_c(69, 120, 101, 99, 117, 116, 111, 114, 32, 110, 111, 116, 32, 115, 117, 112, 112, 111, 114, 116, 101, 100))
+    end
+
+    local _0x1Ill1lllIl, _err = _0xl1lIIl11l1(_0x1IIlllII1I, _c(64, 65, 114, 107, 111, 110, 76, 111, 97, 100, 101, 114))
+    if not _0x1Ill1lllIl then
+        error(_err or "Loader Execution Fault")
+    end
+
+    return _0x1Ill1lllIl(...)
+end)(...)
